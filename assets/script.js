@@ -4,13 +4,14 @@ form.addEventListener('submit', (e) => {e.preventDefault();
 const inputPeso = e.target.querySelector('#peso');
 const inputAltura = e.target.querySelector('#altura');
 
+if(NaN || null || infinity || undefined) {resultado.innerHTML += `<p>Por favor, inserir dados válidos</p>`}; 
+                                        
 const peso = Number(inputPeso.value);
 const altura = Number(inputAltura.value);
 
 if(!peso){setResultado('Peso Inválido');return;};
 if(!altura){setResultado('Altura Inválida');return;};
-if(NaN || null || Infinity || undefined) {resultado.innerHTML += `<p>Por favor, inserir dados válidos</p>`};                                        
-                                        
+                                                                            
 const imc = getIMC(peso,altura);
 const nivelIMC = getNívelImc(imc);
 
