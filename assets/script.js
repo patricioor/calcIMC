@@ -3,22 +3,20 @@ const form = document.querySelector('#form');
 form.addEventListener('submit', (e) => {e.preventDefault();
 const inputPeso = e.target.querySelector('#peso');
 const inputAltura = e.target.querySelector('#altura');
-
-if(NaN || null || infinity || undefined) {resultado.innerHTML += `<p>Por favor, inserir dados válidos</p>`}; 
                                         
 const peso = Number(inputPeso.value);
 const altura = Number(inputAltura.value);
 
-if(!peso){setResultado('Peso Inválido');return;};
-if(!altura){setResultado('Altura Inválida');return;};
+if(!peso){setResultado('Resultado','Peso Inválido');return;};
+if(!altura){setResultado('Resultado','Altura Inválida');return;};
                                                                             
 const imc = getIMC(peso,altura);
 const nivelIMC = getNívelImc(imc);
 
-const msg1 = 'Resultado'
+const msgResultado = 'Resultado';
 const msg = `Seu IMC é ${imc} (${nivelIMC})`;
 
-setResultado(msg1, msg,true);
+setResultado(msgResultado, msg,true);
 })
 
 function getNívelImc (imc) {
@@ -46,7 +44,7 @@ function criah3() {
   return h3;
 }
 
-function setResultado(msg1, msg, isValid) {
+function setResultado(msgResultado, msg, isValid) {
   const resultado = document.querySelector('#resultado');
   resultado.innerHTML = '';
 
@@ -59,11 +57,9 @@ function setResultado(msg1, msg, isValid) {
     p.classList.add('bad')
   }
 
-  h3.innerHTML = msg1;
+  h3.innerHTML = msgResultado;
   resultado.appendChild(h3)
 
   p.innerHTML = msg;
   resultado.appendChild(p);
-
 }
-  
