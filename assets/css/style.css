@@ -38,7 +38,6 @@ section .grid {
   display: grid;
   grid-template-columns: 18.75rem 18.75rem;
   grid-template-areas: 'A B';
-  padding-inline: 1rem;
 }
 
 .col-a, .col-b {
